@@ -28,8 +28,12 @@ Route::controller(AuthController::class)->group(function (){
 
 Route::controller(MemberController::class)->group(function (){
 	Route::post('/member-register-permission','seekPermissionCreateMember')->name('auth.member.seek-permission.register');
-	//Route::get('/login','login')->name('auth.login');
-	//Route::get('/register','register')->name('auth.register');
+	Route::post('/create-member-by-admin','approved')->name('create.member.registration.byAdmin');
+	//Route::get('/create-member-by-admin','approved')->name('create.member.registration.byAdmin');
+	Route::post('/seek-permission-create-member-cancel','PermissionCancel')->name('permission.member.cancel');
+	Route::post('/member-login','LoginMember')->name('member.login');
+	Route::get('/member-login','LoginMember')->name('member.login');
+
 });
 
 
@@ -90,9 +94,11 @@ Route::controller(AdminController::class)->group(function(){
 	Route::get('/login-admin','adminLogin')->name('check.admin.login');
 	Route::post('/create-admin-by-superadmin','approved')->name('create.admin.registration.bySuperadmin');
 	Route::post('/seek-permission-create-admin-cancel','PermissionCancel')->name('permission.admin.cancel');
-	Route::get('/seek-permission-create-admin-cancel','adminLogin')->name('permission.admin.cancel');
-	
+	Route::get('/seek-permission-create-admin-cancel','adminLogin')->name('permission.admin.cancel');	
 });
+
+
+
 
 
 

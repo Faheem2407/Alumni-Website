@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\AdminRegistration;
 use App\Models\SeekPermissionCreateAdmin;
+use App\Models\SeekPermissionCreateMember;
 use Redirect;
 use Str;
 
@@ -75,12 +76,13 @@ class AdminController extends Controller
 				
 		$d = AdminRegistration::where('admin_email',$a)->get();
 		$admins = SeekPermissionCreateAdmin::all();
+		$members = SeekPermissionCreateMember::where('department',$c)->get();
 		
 		if(count($d)){
 			$e = $d[0]->admin_password;
 			if(Hash::check($b,$e)){
 				if($d[0]->department === $c){
-					return view("admin.department.$c",['admins'=>$admins]);
+					return view("admin.department.$c",['admins'=>$admins,'members'=>$members]);
 				}else{
 					return redirect()->route('auth.admin.login')->with('msg','Wrong department selection');
 				}
@@ -121,6 +123,45 @@ class AdminController extends Controller
 		return view('admin.department.superadmin',['admins'=>$admins]);
 		
 	}	
+	
+
+/*	public function LoginAdminForMemberApproval(Request $request){
+		
+		
+		$a = $request->name;
+		$b = $request->fname;
+		$c = $request->mname;
+		$d = $request->phone;
+		$e = $request->email;
+		$f = $request->department;
+		$g = $request->session;
+		$h = $request->address;
+		$i = $request->job;
+		$j = $request->blood;
+		$k = $request->image;
+		$l = $request->password;
+		$m = $request->confirm_password;
+				
+		$x = MemberRegistration::where('email',$e)->get();
+		$members = SeekPermissionCreateMember::all();
+		
+		if(count($d)){
+			$e = $d[0]->admin_password;
+			if(Hash::check($b,$e)){
+				if($d[0]->department === $c){
+					return view("admin.department.$c",['members'=>$members]);
+				}else{
+					return redirect()->route('auth.admin.login')->with('msg','Wrong department selection');
+				}
+			}else{
+				return redirect()->route('auth.admin.login')->with('msg','Invalid password'); 
+			}
+		}
+		
+		return redirect()->route('auth.admin.login')->with('msg','Invalid Credentials'); 
+		
+	}
+*/
 	
 }
 

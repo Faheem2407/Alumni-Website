@@ -9,7 +9,7 @@
 				<div class="col-2"></div>
 				<div class="col-8 p-5">
 					<h1 class="bg-dark text-white text-center p-2">Member Login Form</h1>
-					<form class="p-5 card shadow-lg" action="{{route('home')}}" >
+					<form class="p-5 card shadow-lg" action="{{route('member.login')}}" >
 						@csrf
 						<div>
 							@if(session('msg'))
@@ -31,7 +31,7 @@
 						</div>
 						<div class="p-2">
 						<label for="pass">Password</label>
-						<input class="form-control form-control-sm" type="password" id="pass" name="pass" placeholder="enter password" required>
+						<input class="form-control form-control-sm" type="password" id="password" name="password" placeholder="enter password" required>
 						</div>
 						<div class="p-2">
 						<input class="form-control btn btn-success" type="submit" name="submit" value="Login" >

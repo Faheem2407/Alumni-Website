@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
 use App\Models\SeekPermissionCreateMember;
+use App\Models\MemberRegistration;
 use Illuminate\Http\Request;
 use Validator;
 use Redirect;
@@ -59,6 +60,86 @@ class MemberController extends Controller
 
         return redirect()->route('auth.login')->with('msg', 'Request sent successfully for member creation!');
     }
+	
+	public function approved(Request $request){		
+        $member = new MemberRegistration;
+        $member->name = $request->name;
+        $member->fname = $request->fname;
+        $member->mname = $request->mname;
+        $member->phone = $request->phone;
+        $member->email = $request->email;
+        $member->department = $request->department;
+        $member->session = $request->session;
+        $member->address = $request->address;
+        $member->job = $request->job;
+        $member->blood = $request->blood;
+        $member->image = $request->image;
+        $member->password = $request->password;
+        $member->confirm_password = $request->confirm_password;
+        $member->save();
+			
+		SeekPermissionCreateMember::where('id',$request->id)->delete();
+		$members = SeekPermissionCreateMember::where('department',$member->department)->get();
+		return view('admin.department.cse',['members'=>$members]);
+		
+	}
+	
+	public function PermissionCancel(Request $request){
+		$a = $request->department;
+		SeekPermissionCreateMember::where('id',$request->id)->delete();
+		$members = SeekPermissionCreateMember::where('department',$a)->get();
+		return view('admin.department.cse',['members'=>$members]);
+	}	
+	
+	
+	
+	
+	
+	
+	public function LoginMember(Request $request){
+		
+		
+		$a = $request->name;
+		$b = $request->fname;
+		$c = $request->mname;
+		$d = $request->phone;
+		$e = $request->email;
+		$f = $request->department;
+		$g = $request->session;
+		$h = $request->address;
+		$i = $request->job;
+		$j = $request->blood;
+		$k = $request->image;
+		$l = $request->password;
+		$m = $request->confirm_password;
+				
+		$x = MemberRegistration::where('email',$e)->get();
+		$members = MemberRegistration::all();
+		
+		if(count($x)){
+			$y = $x[0]->password;
+			if(Hash::check($l,$y)){
+				return view("admin.department.member",['members'=>$members]);
+				/*if($x[0]->department === $f){
+					//return view("admin.department.$c",['members'=>$members]);
+					
+				}else{
+					return redirect()->route('auth.login')->with('msg','Wrong department selection');
+				}*/
+				
+				
+			}else{
+				return redirect()->route('auth.login')->with('msg','Invalid password'); 
+			}
+		}
+		
+		return redirect()->route('auth.login')->with('msg','Invalid Credentials'); 
+		
+	}
+
+	
+	
+	
 }
 
 
