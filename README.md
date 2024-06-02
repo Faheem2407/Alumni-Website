@@ -9,7 +9,7 @@ Features:
     -> Nessesary links like: university website, department website their facebook links and contact information and so on..
 Overview:
 --------
-    -> First create a super admin mannually into your admin_registrations table
+    -> you have a super admin already created for this project if you go through my "how to run it in your local machine steps"(email: superadmin@gmail.com, password:superadmin, and select department:superadmin, to login)
     -> Here we have a super admin who will give the permission of all department's admin to register.
     -> And Department admin will give the permission of member's register.
 
@@ -25,5 +25,6 @@ How to run it in your local machine step by step:
 	->copy everything from .env.example and paste it into .env file
 	->run this command in project directory: php artisan key:generate
 	->to get the databases run: php artisan migrate
+    ->run the command: php artisan db:seed
 	->then serve the project: php artisan serve
 	->copy the url and paste it into your browser and you are ready to go...!
