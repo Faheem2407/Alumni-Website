@@ -34,3 +34,7 @@ How to run it in your local machine step by step:
     ->run the command: php artisan db:seed
 	->then serve the project: php artisan serve
 	->copy the url and paste it into your browser and you are ready to go...!
+
+
+I will provide if any update comes or any changes i do.
+so follow me on github to get up-to-date project............
