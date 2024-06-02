@@ -20,6 +20,7 @@ Feel free to run this on your local machine to see my works....
 How to run it in your local machine step by step:
 ------------------------------------------------
 	->first clone the project repo into your local machine
+    ->run: cd Alumni-Website
 	->then run: composer update
 	->make: .env file into the project directory
 	->copy everything from .env.example and paste it into .env file
