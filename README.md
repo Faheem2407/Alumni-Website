@@ -9,9 +9,21 @@ Features:
     -> Nessesary links like: university website, department website their facebook links and contact information and so on..
 Overview:
 --------
+    -> First create a super admin mannually into your admin_registrations table
     -> Here we have a super admin who will give the permission of all department's admin to register.
     -> And Department admin will give the permission of member's register.
 
 My Messages:
 -----------
 Feel free to run this on your local machine to see my works....
+
+How to run it in your local machine step by step:
+------------------------------------------------
+	->first clone the project repo into your local machine
+	->then run: composer update
+	->make: .env file into the project directory
+	->copy everything from .env.example and paste it into .env file
+	->run this command in project directory: php artisan key:generate
+	->to get the databases run: php artisan migrate
+	->then serve the project: php artisan serve
+	->copy the url and paste it into your browser and you are ready to go...!
