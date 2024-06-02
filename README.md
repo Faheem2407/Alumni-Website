@@ -1,7 +1,11 @@
 This is my final year 1st semester project.
 In this project i used laravel-11 to build the alumni website for my university.
-to run this project locally in your machine to show the output please follow all the instructions given in this README.md file
------
+-------------------------------------------------------------------------------
+
+Alert-message:
+--------------
+To run this project locally in your machine to show the output please follow all the instructions given in this README.md file
+
 Features:
 --------
     -> Diffrent department admin register and login system
