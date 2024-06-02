@@ -17,4 +17,16 @@ class AdminRegistration extends Model
 		'admin_confirm_password',
 		'department',
 	];
+	protected $hidden = [
+        'admin_password',
+		'admin_confirm_password',
+    ];
+    protected function casts(): array
+    {
+        return [
+            'admin_password' => 'hashed',
+            'admin_confirm_password' => 'hashed',
+        ];
+    }
 }
+
