@@ -1,5 +1,5 @@
 This is my final year 1st semester project.
-In this project i used laravel-11 to build the alumni website for my university.
+In this project i used laravel-11 to build the alumni website for my university.(On going) 
 -------------------------------------------------------------------------------
 
 Alert-message:
