@@ -1,5 +1,7 @@
 This is my final year 1st semester project.
 In this project i used laravel-11 to build the alumni website for my university.(On going) 
+For latest update please check: University-Alumni-Website Repository 
+link: https://github.com/Faheem2407/University-Alumni-Website
 -------------------------------------------------------------------------------
 
 Alert-message:
